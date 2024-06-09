@@ -27,13 +27,27 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-graphql")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
+
+	// security (강사님이 추가해두긴 했는데, 초반에는 disable 해두기로 결정)
+	implementation("org.springframework.boot:spring-boot-starter-security")
+
+	// graphql-scalars
+	implementation("com.graphql-java:graphql-java-extended-scalars:21.0")
+
+	// h2
 	runtimeOnly("com.h2database:h2")
+
+	// lombok
+	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework:spring-webflux")
 	testImplementation("org.springframework.graphql:spring-graphql-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// webflux test
+	testImplementation("org.springframework:spring-webflux")
 }
 
 tasks.withType<Test> {
