@@ -1,11 +1,11 @@
 스터디 계획
 
 - Java 버전 GraphQL (Spring Security, JPA, GraphQL)
-- Kotlin 버전 GraphQL 로 전환
-- 예제 주제 변경, Kotlin 버전으로 Entity 설계 처음부터 다시 시작
-- OAuth2 연동
+  - 어떻게 하는지 방식만 빠르게 예제 기반으로 파악
 
-<br/>
+- 예제 주제 변경 + Kotlin 버전으로 Entity 설계 처음부터 다시 시작
+- Kotlin 버전 GraphQL 로 전환
+- OAuth2 연동
 
 
 
