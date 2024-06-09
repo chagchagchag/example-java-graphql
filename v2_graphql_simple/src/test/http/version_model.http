@@ -1,0 +1,16 @@
+GRAPHQL http://localhost:8080/graphql
+
+{
+    getVersionModel {
+        name
+        releaseDate
+    }
+}
+
+
+
+
+
+
+
+
