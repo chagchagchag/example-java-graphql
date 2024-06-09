@@ -1,0 +1,8 @@
+type Query {
+    getVersionModel: VersionModel # (1)
+}
+
+type VersionModel { # (2)
+    name: String,
+    releaseDate: String
+}

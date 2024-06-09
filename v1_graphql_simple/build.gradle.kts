@@ -28,8 +28,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-graphql")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 
-	// security (강사님이 추가해두긴 했는데, 초반에는 disable 해두기로 결정)
-	implementation("org.springframework.boot:spring-boot-starter-security")
+	// security
+//	implementation("org.springframework.boot:spring-boot-starter-security")
 
 	// graphql-scalars
 	implementation("com.graphql-java:graphql-java-extended-scalars:21.0")
