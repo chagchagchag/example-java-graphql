@@ -1,1 +1,1 @@
-rootProject.name = "v1_graphql_simple"
+rootProject.name = "v2_graphql_simple"
