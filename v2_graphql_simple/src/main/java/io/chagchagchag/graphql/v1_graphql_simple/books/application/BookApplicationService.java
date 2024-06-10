@@ -1,8 +1,6 @@
 package io.chagchagchag.graphql.v1_graphql_simple.books.application;
 
 import io.chagchagchag.graphql.v1_graphql_simple.author.entity.Author;
-import io.chagchagchag.graphql.v1_graphql_simple.author.mapper.AuthorMapper;
-import io.chagchagchag.graphql.v1_graphql_simple.author.model.AuthorModel;
 import io.chagchagchag.graphql.v1_graphql_simple.author.service.AuthorService;
 import io.chagchagchag.graphql.v1_graphql_simple.books.entity.Book;
 import io.chagchagchag.graphql.v1_graphql_simple.books.mapper.BookMapper;
@@ -13,7 +11,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class BookApplicationService {
   private final AuthorService authorService;
   private final BookService bookService;
-  private final AuthorMapper authorMapper;
   private final BookMapper bookMapper;
 
   @Transactional
