@@ -1,8 +1,8 @@
 package io.chagchagchag.graphql.v1_graphql_simple.reviews.controller;
 
-import io.chagchagchag.graphql.v1_graphql_simple.books.service.BookService;
+import io.chagchagchag.graphql.v1_graphql_simple.reviews.application.ReviewApplicationService;
 import io.chagchagchag.graphql.v1_graphql_simple.reviews.entity.Review;
-import io.chagchagchag.graphql.v1_graphql_simple.reviews.service.ReviewService;
+import io.chagchagchag.graphql.v1_graphql_simple.reviews.model.ReviewModel;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -16,33 +16,22 @@ import org.springframework.stereotype.Controller;
 @RequiredArgsConstructor
 @Controller
 public class ReviewController {
-  private final ReviewService reviewService;
-  private final BookService bookService;
+  private final ReviewApplicationService reviewApplicationService;
 
   @MutationMapping
-  public Review addReview(
+  public ReviewModel addReview(
       @Argument Long bookId,@Argument String content,@Argument Float rating
   ){
-    Review newReview = new Review();
-    newReview.setBook(bookService.findById(bookId).orElseThrow());
-    newReview.setContent(content);
-    newReview.setRating(rating);
-    newReview.setCreatedDate(OffsetDateTime.now());
-
-    return reviewService.saveReview(newReview);
+    return reviewApplicationService.saveReview(bookId, content, rating);
   }
 
   @QueryMapping
-  public List<Review> getReviewsByBookId(@Argument Long id) {
-    return reviewService.findByBookId(id);
+  public List<ReviewModel> getReviewsByBookId(@Argument Long id) {
+    return reviewApplicationService.findByBookId(id);
   }
 
   @MutationMapping
   public Map<String, Boolean> deleteReviewById(@Argument Long reviewId) {
-    reviewService.deleteById(reviewId);
-    Map<String, Boolean> resultMap = new HashMap<>();
-    resultMap.put("success", true);
-
-    return resultMap;
+    return reviewApplicationService.deleteById(reviewId);
   }
 }

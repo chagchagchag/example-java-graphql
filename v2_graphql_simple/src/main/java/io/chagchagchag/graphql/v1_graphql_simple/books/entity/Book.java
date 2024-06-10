@@ -18,6 +18,7 @@ import jakarta.persistence.TemporalType;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor(staticName = "ofAll")
 @Entity
 @Table(name = "books")
 public class Book {

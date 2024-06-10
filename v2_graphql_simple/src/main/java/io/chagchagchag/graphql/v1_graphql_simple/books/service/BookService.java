@@ -1,9 +1,13 @@
 package io.chagchagchag.graphql.v1_graphql_simple.books.service;
 
+import io.chagchagchag.graphql.v1_graphql_simple.author.entity.Author;
 import io.chagchagchag.graphql.v1_graphql_simple.books.entity.Book;
 import io.chagchagchag.graphql.v1_graphql_simple.books.repository.BookRepository;
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +20,24 @@ public class BookService {
   @Transactional
   public Book saveBook(Book book){
     return bookRepository.save(book);
+  }
+
+  @Transactional
+  public Book saveBook(
+      String title,
+      String publisher,
+      LocalDate publishedDate,
+      Set<Author> authors
+  ){
+    Book newBook = Book.ofAll(
+        null,
+        title,
+        publisher,
+        publishedDate,
+        authors,
+        null
+    );
+    return bookRepository.save(newBook);
   }
 
   @Transactional(readOnly = true)
